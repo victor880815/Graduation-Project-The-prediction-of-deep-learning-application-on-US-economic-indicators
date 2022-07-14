@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{%static 'assets/css/styler.css'%}">
+	<title>登入</title>
+</head>
+
+<body>
+	<section class="login-section">
+			<div class="container">
+				<div class="login growOut">
+					<div class="user_card">
+					<h2>登入</h2>
+					<a class="cta" href="/" style="margin-left: 400px;"><button>回首頁</button></a>
+					<form action="" method="POST" >
+						{% csrf_token %}
+						<!-- <table>{{ form.as_table }}</table> -->
+
+						<label for="user">
+							<p style="white">{{form.username.label}}</p>
+							<span class="input-group-text"><i class="fas fa-user fa-2x" style="background-color: #023f4d;" ></i></span>
+							<!-- <input type="username" placeholder="帳號" id="user"> -->
+						{{form.username}}
+						</label>
+
+						<label for="pass">
+							<p style="white">{{form.password.label}}</p>
+							<span class="input-group-text"><i class="fas fa-key fa-2x" style="background-color: #023f4d;" ></i></span>
+							<!-- <input type="password" placeholder="密碼" id="pass"> -->
+						{{form.password}}
+						</label>
+
+						<button class="btn" type="submit" value="Login">登入</button>
+						<div class="create">
+							<a href="/signup.html">註冊帳號</a>
+							<a href="/help">需要幫助？</a>
+						</div>
+					</form>
+					
+					{% for message in messages %}
+						<p id="messages">{{message}}</p>
+					{% endfor %}
+
+					<div class="credit-section">
+						<div class="credit">
+							<p>&copy; 2022. Designed by <a href="#">Victor Lin</a></p>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<script>
+				var form_fields = document.getElementsByTagName('input')
+				form_fields[1].placeholder='帳號..';
+				form_fields[2].placeholder='密碼..';
+
+				for (var field in form_fields){	
+					form_fields[field].className += ' form-control'
+				}
+			</script>
+	</section>
+</body>
+</html>

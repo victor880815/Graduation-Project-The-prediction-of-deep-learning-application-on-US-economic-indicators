@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/styler.css'%}">
+	<title>忘記密碼</title>
+</head>
+<body>
+	<section class="login-section">
+		
+			<div class="container">
+				<div class="login growOut">
+					<div class="user_card">
+					<h2>重設密碼</h2>
+					<form action="" method="POST">
+						
+
+
+						<label for="user">
+							<!-- <img src=".static/images/envelope.png"> -->
+							<i class="fas fa-envelope fa-2x" color = "white" ></i>
+							<input type="email" placeholder="信箱" id="user">
+						</label>
+
+
+
+						<button class="btn">重設密碼</button>
+
+						<div class="forgot">
+							<p>請輸入信箱以重設密碼</p>
+						</div>
+
+						<div class="create">
+							<a href="/signup.html">註冊帳號</a>
+							<a href="#">需要幫助？</a>
+						</div>
+					</form>
+
+					<div class="credit-section">
+						<div class="links">
+							<a href="#">關於</a>
+							<a href="#">隱私</a>
+							<a href="#">規章</a>
+						</div>
+
+						<div class="credit">
+							<p>&copy; 2022. Designed by Victor Lin</p>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		
+	</section>
+
+</body>
+</html>

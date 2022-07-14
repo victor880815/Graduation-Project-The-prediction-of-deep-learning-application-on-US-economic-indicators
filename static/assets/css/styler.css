@@ -1,0 +1,517 @@
+*,
+
+*::before,
+
+*::after{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+          background-color: #24252A;
+}
+
+ 
+
+.user_card span{
+          background-color: #023f4d;
+}
+
+.user_card label{
+     background-color: #ffffff;
+}
+
+head{
+          background-color: #023f4d;
+}
+
+ 
+
+html{
+          font-family: "微軟正黑體", sans-serif;
+          font-size: 10px;
+}
+
+ 
+
+body{
+          width: 100%;
+          background-color: #24252A;
+}
+
+ 
+
+label{
+          background-color:  #023f4d;
+}
+
+ 
+
+form{
+          background-color:  #023f4d;
+}
+
+ 
+
+span{
+          background-color:  #023f4d;
+}
+
+ 
+
+ 
+
+ 
+
+p{
+          font-size: 1.4rem;
+          color: #ecf0f1;
+          line-height: 1.6;
+          margin-left: 22px;
+          background-color: #023f4d;
+}
+
+ 
+
+section{
+          padding: 5rem 0;
+}
+
+ 
+
+script{
+          background-color: #ffffff;
+}
+
+ 
+
+ 
+
+/*剛剛加的*/
+
+button{
+          margin-left: 10px;
+          padding: 2px 5px;
+          justify-content: flex-end;
+          background-color: rgba(0,136,169,1);
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition:all 0.3s ease 0s;
+          font-family: "微軟正黑體", sans-serif;
+          font-weight: 550;
+          font-size: 16px;
+          color: #ecf0f1;
+          text-decoration: none;
+}
+
+ 
+
+button:hover{
+          background-color: rgba(0,136,169,0.8);
+}
+
+ 
+
+.cta{
+          background-color: #023f4d;
+}
+
+ 
+
+.links a{
+          transition: all 0.3s ease 0s;
+          background-color: #023f4d;
+}
+
+ 
+
+/*.forgot a{
+          background-color: #023f4d;
+}
+
+ 
+
+.user a{
+          background-color: #023f4d;
+}
+
+ 
+
+.pass a{
+          background-color: #023f4d;
+}*/
+
+ 
+
+.links a:hover{
+          color: #0088a9
+}
+
+ 
+
+.create a{
+          transition: all 0.3s ease 0s;
+}
+
+ 
+
+.create a:hover{
+          transition: all 0.3s ease 0s;
+}
+
+ 
+
+.user_card {
+          width: 500px;
+          margin-top: 70px;
+          margin-bottom: auto;
+          background-color: #023f4d;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding: 10px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          margin-left: 900px;
+          border-radius: 5px;
+}
+
+.user_card i{
+          background-color: #023f4d;
+}
+
+.user_card h2{
+          background-color: #023f4d;
+          color: #ffffff;
+}
+
+ 
+
+.user_card span{
+          background-color: #023f4d;
+}
+
+ 
+
+.user_card label{
+          background-color: #023f4d;   
+}
+
+ 
+
+.input-group-text {
+          background-color: #023f4d !important;
+          color: white !important;
+          border: 0 !important;
+          border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+ 
+
+.input-group-text i{
+          background-color: #023f4d;
+}
+
+ 
+
+ 
+
+.flex-container {
+    overflow:auto;
+}
+
+ 
+
+.credit p{
+          background-color:#023f4d;
+}
+
+ 
+
+.container{
+          width: 100%;
+          max-width: 120rem;
+          margin: 0 auto;
+          padding: 0 2.5rem;
+}
+
+ 
+
+.login-section{
+          background-color: #24252A;
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          position: relative;
+}
+
+ 
+
+/*.overlay{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0,7)
+}*/
+
+ 
+
+.login{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color:  #24252A;
+          background-color: #24252A;
+}
+
+ 
+
+.login{
+          width: 5rem;
+          padding-bottom: 1rem;
+}
+
+ 
+
+.login h2{
+          font-size: 2.1rem;
+          color: #ffffff;
+          margin-bottom: 4rem;
+          background-color: #023f4d;
+}
+
+ 
+
+.login a{
+          transition: all 0.3s ease 0s;
+}
+
+ 
+
+.login a:hover{
+          color: #0088a9
+}
+
+ 
+
+.login form{
+          display: flex;
+          flex-direction: column;
+          background-color: #023f4d;
+}
+
+ 
+
+.login form label{
+          position: relative;
+          background-color: #023f4d;
+}
+
+ 
+
+.login form input{
+          padding: 1.3rem 5rem;
+          border: 1px solid transparent;
+          border-radius: 5rem;
+          margin-bottom: 2rem;
+          background-color: #24252A;
+          outline: none;
+          color: rgba(255,255,255,0.7);
+          background-color: #023f4d;
+}
+
+ 
+
+.login form i{
+          position: absolute;
+          left: 2rem;
+          top: 1.5rem;
+          color: rgba(255,255,255,0.7)
+          background-color: #023f4d;
+}
+
+ 
+
+::placeholder{
+          color: rgba(255,255,255,0.7)
+}
+
+ 
+
+ 
+
+.login form button{
+          padding-left: 1.1rem 4rem;
+          border: 1px solid transparent;
+          border-radius: 5rem;
+          outline: none;
+          background-color: rgba(0,136,169,1);
+          color: #ecf0f1;
+          font-size: 1.3rem;
+          font-weight: 400;
+          text-transform: uppercase;
+          cursor: pointer;
+          margin-bottom: 2rem;
+          transform:translateY(0);
+          transition: all 0.3s ease 0;
+}
+
+ 
+
+.login form button:hover{
+          transform: translateY(0);
+          background-color:  rgba(0,136,169,0.8);
+}
+
+ 
+
+.forgot a{
+          background-color: #023f4d;
+}
+
+ 
+
+.logged input{
+          background-color: #023f4d;
+}
+
+ 
+
+.forgot{
+          display: flex;
+          justify-content: space-between;
+          position: relative;
+          background-color: #023f4d;
+}
+
+ 
+
+.forgot::before{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: rgba(255,255,255,0.1);
+          background-color: #023f4d;
+}
+
+ 
+
+.logged{
+          font-size: 1.3rem;
+          color: rgba(255,255,255,0.7);
+}
+
+ 
+
+.create{
+          display: flex;
+          justify-content: space-between;
+          text-transform: capitalize;
+          margin-top: 1rem;
+          background-color: #023f4d;
+}
+
+ 
+
+.create a{
+          background-color: #023f4d;
+}
+
+ 
+
+.create button{
+          background-color: #023f4d;
+}
+
+ 
+
+a,
+a:link,
+a:visited{
+          font-family: "微軟正黑體";
+          color: rgba(255,255,255,0.7);
+          font-size: 1.3rem;
+          text-decoration: none;
+}
+
+ 
+
+a.hover{
+          color: #fc636b;
+}
+
+ 
+
+.credit-section{
+          width: 100%;
+          margin-top: 10rem;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          background-color: #023f4d;
+}
+
+.links{
+          background-color: #023f4d;
+}
+
+ 
+
+.links a{
+          padding: 0.5rem;
+          background-color: #023f4d;
+}
+
+.credit{
+          background-color: #023f4d;
+}
+
+.credit a{
+          background-color: #023f4d;
+}
+
+ 
+
+.credit p span{
+          color:#fc636b;
+}
+
+ 
+
+@media screen and (max-width: 700px){
+          .credit_section{
+                   flex-direction: column;
+          }
+
+          .links{
+                   margin-bottom: 1rem;
+          }
+}
+
+ 
+
+@keyframes grow{
+          0% {
+                   transform: scale(0);
+          }
+          50% {
+                   transform: scale(50%);
+          }
+          100% {
+                   transform: scale(100%);
+          }
+}
+
+ 
+
+.growOut{
+          animation: grow 0.8s 1 linear;
+}
+	

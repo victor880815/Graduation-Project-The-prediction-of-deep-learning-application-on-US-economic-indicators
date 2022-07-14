@@ -1,0 +1,144 @@
+<!-- base.html -->
+<!DOCTYPE>
+{% load static %} 
+<html>
+<head>
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>
+    {% block title %} {% endblock %}
+  </title>
+
+  <!--favicon-->
+  <link rel="icon" href={% static "assets/images/MIS.ico" %} type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href={% static "assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" %} rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href={% static "assets/plugins/simplebar/css/simplebar.css" %} rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href={% static "assets/css/bootstrap.min.css" %} rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href={% static "assets/css/animate.css" %} rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href={% static "assets/css/icons.css" %} rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href={% static "assets/css/sidebar-menu.css" %} rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href={% static "assets/css/app-style.css" %} rel="stylesheet"/>
+  
+</head>
+
+<body class="bg-theme bg-theme1">
+ 
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+    {% include 'header.html' %}
+
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="">
+       <img src={% static "assets/images/MIS.jpg" %} class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">資管系畢業專題</h5>
+     </a>
+   </div>
+  <ul class="sidebar-menu do-nicescrol">
+    <li class="sidebar-header">MAIN NAVIGATION</li>
+    <li>
+      <a a href="{% url 'home' %}">
+        <i class="zmdi zmdi-home"></i> <span>HOME</span>
+      </a>
+    </li>
+    <li>
+      <a href="/model">
+        <i class="zmdi zmdi-view-dashboard"></i> <span>Model</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'f_unemployed' %}">
+        <i class="zmdi zmdi-grid"></i> <span>美國初領失業救濟金人數</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'c_unemployed' %}">
+        <i class="zmdi zmdi-grid"></i> <span>美國續領失業救濟金人數</span>
+      </a>
+    </li>
+
+    <li class="sidebar-header">OTHERS</li>
+    <li><a href="{% url 'chat_post'%}"><i class="zmdi zmdi-coffee text-danger"></i> <span>留言區</span></a></li>
+    <li><a href="{% url 'tv'%}"><i class="zmdi zmdi-chart-donut text-success"></i> <span>影音資訊</span></a></li>
+
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <i class="zmdi zmdi-share text-info"></i> <span>新聞連結</span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i><a href="https://www.cnbc.com/world/?region=world"> CNBC</a></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i><a href="https://www.forbes.com/?sh=4d2d3d1a2254"> Forbes</a></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i><a href="https://www.reuters.com/"> Reuters</a></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i><a href="https://www.wsj.com/"> The wall street journal</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+   <!--End sidebar-wrapper-->
+
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+
+{% block content %} {% endblock %}
+	  
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+		
+    </div>
+    <!-- End container-fluid-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+{% include 'footer.html' %}
+	
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src={% static "assets/js/jquery.min.js" %}></script>
+  <script src={% static "assets/js/popper.min.js" %}></script>
+  <script src={% static "assets/js/bootstrap.min.js" %}></script>
+	
+ <!-- simplebar js -->
+  <script src={% static "assets/plugins/simplebar/js/simplebar.js" %}></script>
+  <!-- sidebar-menu js -->
+  <script src={% static "assets/js/sidebar-menu.js" %}></script>
+  <!-- loader scripts -->
+  <script src={% static "assets/js/jquery.loading-indicator.js" %}></script>
+  <!-- Custom scripts -->
+  <script src={% static "assets/js/app-script.js" %}></script>
+  <!-- Chart js -->
+  
+  <script src={% static "assets/plugins/Chart.js/Chart.min.js" %}></script>
+ 
+  <!-- Index js -->
+  <script src={% static "assets/js/index.js" %}></script>
+  
+</body>
+</html>

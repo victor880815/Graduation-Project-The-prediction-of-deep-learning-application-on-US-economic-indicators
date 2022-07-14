@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<style>
+	.user_card big{
+		background-color:  #023f4d;
+	}
+</style>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{%static 'assets/css/styler.css'%}">
+	<title>需要幫助</title>
+</head>
+
+<body>
+	<section class="login-section">
+		<div class="container">
+			<div class="login growOut">
+				<div class="user_card">
+				<h2>幫助</h2>
+				<a class="cta" href="{% url 'signin'%}" style="margin-left: 370px;"><button>回登入頁面</button></a>
+				<p style="color: #ffffff;"><strong><big>
+				無法註冊帳號？</big></strong></p>
+				<p style="color: #ffffff;">
+				1.你的密碼不能與其他個人資訊太相近。<br>
+				2.你的密碼必須包含至少8個字元。<br>
+				3.你不能使用常見的密碼。<br>
+				4.你的密碼不能完全是數字。<br>
+				5.帳號名稱是必要的，150個字或更少且只能包含數字/字母和@/./+/-/_。
+				</p>
+
+				<p style="color: #ffffff;"><strong><big><br>
+				無法點選選單？</big></strong></p>
+				<p style="color: #ffffff;">
+				1.交流區須登入才能觀看<br>
+				<br>
+				</p>
+			</div>	
+	</section>
+</body>
+</html>

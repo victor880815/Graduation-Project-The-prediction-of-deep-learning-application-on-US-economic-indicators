@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 資管系畢業專題 {% endblock %}
+{% block headmessage %}
+{% endblock %}
+{% block content %}
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+<div align="center">
+
+<form class="list" action="" method="POST">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-lg-8 col-xl-2">
+        </div>
+        <div class="col-12 col-lg-8 col-xl-8">
+            <select name="keyword" class="form-control">
+                <option value="" selected disabled hidden>Select Keyword</option>
+                <option value="coronavirus">coronavirus</option>
+                <option value="Covid-19">Covid-19</option>
+                <option value="U.S.">U.S.</option>
+                <option value="vaccine">vaccine</option>
+                <option value="CNBC's">CNBC's</option>
+                <option value="pandemic">pandemic</option>
+                <option value="company">company</option>
+                <option value="Covid">Covid</option>
+                <option value="people">people</option>
+                <option value="market">market</option>
+                <option value="stocks">stocks</option>
+                <option value="investors">investors</option>
+                <option value="economic">economic</option>
+                <option value="health">health</option>
+                <option value="Americans">Americans</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-8 col-xl-2">
+        </div>
+        <div class="col-lg-8 col-xl-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>
+                        最常出現之關鍵字
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div align="center">
+                        <div id="keyword_cloud">
+                            <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
+                                <li><a href="#" data-weight="4">people</a></li>
+                                <li><a href="#" data-weight="1">health</a></li>
+                                <li><a href="#" data-weight="5">Covid</a></li>
+                                <li><a href="#" data-weight="8">U.S.</a></li>
+                                <li><a href="#" data-weight="6">CNBC's</a></li>
+                                <li><a href="#" data-weight="4">market</a></li>
+                                <li><a href="#" data-weight="5">company</a></li>
+                                <li><a href="#" data-weight="6">pandemic</a></li>
+                                <li><a href="#" data-weight="2">economic</a></li>
+                                <li><a href="#" data-weight="9">coronavirus</a></li>
+                                <li><a href="#" data-weight="3">stocks</a></li>
+                                <li><a href="#" data-weight="7">vaccine</a></li>
+                                <li><a href="#" data-weight="8">Covid-19</a></li>
+                                <li><a href="#" data-weight="1">Americans</a></li>
+                                <li><a href="#" data-weight="3">investors</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-xl-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>
+                        選取欲預測之新聞資料與經濟指標⬇️
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div align="center">
+                        <div id="news_data">
+                            <div class="list-item">
+                                <label>
+                                    <input type="checkbox" name="source1">
+                                    <span style="font-size: 26px">&nbsp;CNBC</span>
+                                </label>
+                            </div>
+                            <div class="list-item">
+                                <label>
+                                    <input type="checkbox" name="source2">
+                                    <span style="font-size: 26px">&nbsp;Forbes</span>
+                                </label>
+                            </div>
+                            <div class="list-item">
+                                <label>
+                                    <input type="checkbox" name="first">
+                                    <span style="font-size: 26px">&nbsp;美國初領失業救濟金人數</span>
+                                </label>
+                            </div>
+                            <div class="list-item">
+                                <label>
+                                    <input type="checkbox" name="continued">
+                                    <span style="font-size: 26px">&nbsp;美國續領失業救濟金人數</span>
+                                </label>
+                            </div>
+                            <input type="submit" style="font-size:20px" value="查詢">  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+  
+<br>
+<div align="center">
+    <div class="row">
+        <div class="col-12 col-lg-8 col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>準確度：<font color="#FFD306">{% with infos_mt|last as last %}{{ last.accuracy }}{% endwith %}%</font></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>
+                    模型訓練歷程紀錄
+                </h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush table-borderless">
+                    <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>預測</th>
+                            <th>實際</th>
+                            <th>關鍵字</th>
+                            <th>資料來源</th>
+                        </tr>
+                    </thead>
+                    {% for info in infos_mt %}
+                    <tbody>
+                        <tr>
+                            <td>{{ info.ddate }}</td>
+                            <td>{{ info.predicted }}</td>
+                            <td>{{ info.y_test }}</td>
+                            <td>{{ info.keyword }}</td>
+                            <td>{{ info.source }}</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div><!--End Row-->
+
+<style>
+    #container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+</style> 
+
+
+<style>
+/*   #keyword_cloud{
+        width: 500px;
+        height: 250px;
+        border:2px #FF1D6A solid;
+        }*/
+
+    #news_data{
+                width: 500px;
+                height: 300px;
+                }
+
+    .list span{
+                color: white;
+                }
+                
+    .list input[type="checkbox"]:checked + span{
+                                                color: red;
+                                                }
+
+    #box1:checked{ transform: scale(2); }
+
+    ul.cloud {
+                list-style: none;
+                padding-left: 0;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                line-height: 2.75rem;
+                width: 450px;
+                }
+
+    ul.cloud a {
+                /*   
+                Not supported by any browser at the moment :(
+                --size: attr(data-weight number); 
+                */
+                --size: 4;
+                --color: #a33;
+                color: var(--color);
+                font-size: calc(var(--size) * 0.25rem + 0.5rem);
+                display: block;
+                padding: 0.125rem 0.25rem;
+                position: relative;
+                text-decoration: none;
+                /* 
+                For different tones of a single color
+                opacity: calc((15 - (9 - var(--size))) / 15); 
+                */
+                }
+
+    ul.cloud a[data-weight="1"] { --size: 1; }
+    ul.cloud a[data-weight="2"] { --size: 2; }
+    ul.cloud a[data-weight="3"] { --size: 3; }
+    ul.cloud a[data-weight="4"] { --size: 4; }
+    ul.cloud a[data-weight="5"] { --size: 6; }
+    ul.cloud a[data-weight="6"] { --size: 8; }
+    ul.cloud a[data-weight="7"] { --size: 10; }
+    ul.cloud a[data-weight="8"] { --size: 13; }
+    ul.cloud a[data-weight="9"] { --size: 16; }
+
+    ul[data-show-value] a::after {
+                                content: " (" attr(data-weight) ")";
+                                font-size: 1rem;
+                                }
+
+    ul.cloud li:nth-child(2n+1) a { --color: #73BF00; }
+    ul.cloud li:nth-child(3n+1) a { --color: #FF8000; }
+    ul.cloud li:nth-child(4n+1) a { --color: #c38; }
+
+    ul.cloud a:focus {
+                        outline: 1px dashed;
+                        }
+
+    ul.cloud a::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        width: 0;
+                        height: 100%;
+                        background: var(--color);
+                        transform: translate(-50%, 0);
+                        opacity: 0.15;
+                        transition: width 0.25s;
+                        }
+
+    ul.cloud a:focus::before,
+    ul.cloud a:hover::before {
+                                width: 100%;
+                                }
+
+    @media (prefers-reduced-motion) {
+                                        ul.cloud * {
+                                                        transition: none !important;
+                                                    }
+                                    }
+/*    input {padding:5px 15px; background:#D9FFFF; border:5 none;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; }
+    .container{
+        flex-wrap: wrap;
+    }*/
+/*    p{
+        background-color: #24252A;
+        color: #ffffff;
+        font-family: '微軟正黑體';
+    }*/
+/*    iframe{
+            background-color: #24252A;
+            margin-right: -200px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            }*/
+
+</style>
+
+{% endblock %}
+

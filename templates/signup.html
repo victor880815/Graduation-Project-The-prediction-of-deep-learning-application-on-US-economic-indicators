@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{%static 'assets/css/styler.css'%}">
+	<title>註冊帳號</title>
+</head>
+
+<body>
+	<section class="login-section">
+			<div class="container">
+				<div class="login growOut">
+					<div class="user_card">
+					<h2>註冊帳號</h2>
+					<a class="cta" href="/" style="margin-left: 400px;"><button>回首頁</button></a>
+					<form action="" method="POST">
+						{% csrf_token %}
+						
+						<label for="user">
+							<p style="white">{{form.username.label}}</p>
+							<span class="input-group-text"><i class="fas fa-user fa-2x" style="background-color: #023f4d;"></i></span>
+							
+						{{form.username}}
+						</label>
+						
+						<label for="user">
+							<p style="white">{{form.email.label}}</p>
+							<span class="input-group-text"><i class="fas fa-envelope fa-2x" style="background-color: #023f4d;" ></i></span>
+							
+						{{form.email}}
+						</label>
+						
+						<label for="pass">
+							<p style="white">{{form.password1.label}}</p>
+							<span class="input-group-text"><i class="fas fa-key fa-2x" style="background-color: #023f4d;" ></i></span>
+							
+						{{form.password1}}
+						</label>
+						
+						<label for="pass">
+							<p style="white">{{form.password2.label}}</p>
+							<span class="input-group-text"><i class="fas fa-key fa-2x" style="background-color: #023f4d;" ></i></span>
+							
+						{{form.password2}}
+						</label>
+						
+						<label for="pass" style="background-color: #025163">
+							<p style="background-color: #025163">{{form.captcha.label}}</p>
+							<span class="input-group-text"><i></i></span>
+							
+						{{form.captcha}}
+						</label>
+						
+						<div class="create">
+							<button class="btn" type="submit" value="Register Account">註冊</button>
+							<a href="/help">需要幫助？</a>
+						</div>
+					</form>
+
+					<div class="credit-section">
+						<div class="credit">
+							<p>&copy; 2022. Designed by VictorLin</p>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			{{form.errors}}
+
+			<script>
+				var form_fields = document.getElementsByTagName('input')
+				form_fields[1].placeholder='帳號..';
+				form_fields[2].placeholder='信箱..';
+				form_fields[3].placeholder='輸入密碼...';
+				form_fields[4].placeholder='再輸入一次密碼...';
+
+
+				for (var field in form_fields){	
+					form_fields[field].className += ' form-control'
+				}
+			</script>
+
+	</section>
+</body>
+</html>

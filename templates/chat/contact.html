@@ -1,0 +1,52 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %} 資管系畢業專題 {% endblock %}
+{% block headmessage %}
+<style>
+	.panel-body p{
+		color: #ffffff;
+	}
+
+	.panel-footer button{
+		margin-left: 600px;
+	}
+</style>
+{% endblock %}
+{% block content %}
+	<div class="container" >
+	{% if message %}
+		<div class="alert alert-info" style="color:#ffffff;;">{{ message }} {{ user_name }}</div>
+	{% endif %}
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<form action="." method="POST" style="color: #ffffff;">
+			<strong><big><big><h3 style="color: #67acb5;">寫信給管理員</h3></big></big></strong>
+			{% csrf_token%}
+		</div>
+		<div class="panel-body" style="background-color: #ffffff;">
+			<!-- <p>{{ form.as_p }}</p> -->
+			<p>
+				<label for="id_user_name"><font color="black">姓名：</font></label>
+				<input id="id_user_name" type="text" name="user_name" value="" maxlength="50" required="" style="background-color: #ffffff;">
+			</p>
+			<p>
+				<label for="id_user_email"><font color="black">信箱：</font></label>
+				<input id="id_user_email" type="text" name="user_email" required="" style="background-color: #ffffff;">
+			</p>
+
+			<p>
+				<label for="id_user_message"><font color="black">內容：</font></label>
+				<textarea id="id_user_message" type="text" name="user_message" cols="120" rows="10" required="" style="background-color: #ffffff;"></textarea >
+			</p>
+
+
+		</div>
+		<div class="panel-footer">
+			<br>
+			<button type="submit"  >送出</button>
+		    </form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

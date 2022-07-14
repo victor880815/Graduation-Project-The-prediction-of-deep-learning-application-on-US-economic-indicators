@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 美國初領失業救濟金人數 {% endblock %}
+{% block headmessage %}
+{% endblock %}
+{% block content %}
+
+<div align="center">
+    <div>
+        <h1><font color="white">美國初領失業救濟金人數統計表</font></h1>
+    </div>
+
+    <br>
+    <br>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <style>
+            input {padding:5px 15px; background:#D9FFFF; border:5 none;
+            -webkit-border-radius: 10px;
+            border-radius: 10px; }
+            label {color: white;
+                    padding: 8px;}
+        </style>
+
+        <label for = "ddate1"style="font-size:26px">日期：從</label>
+        <input type="text" style="font-size:20px" name="ddate1" placeholder="xxxx年xx月xx日">
+        <label for = "ddate1"style="font-size:26px">至</label>
+        <input type="text" style="font-size:20px" name="ddate2" placeholder="xxxx年xx月xx日">
+        <input type="submit" style="font-size:20px" value="查詢">
+    </form>
+
+    <br>
+    <br>
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"><font color="white" size="5">日期</font></th>
+                                <th scope="col"><font color="white" size="5">公佈值</font></th>
+                                <th scope="col"><font color="white" size="5">上週值</font></th> 
+                            </tr> 
+                        </thead>
+                        {% for info in infos %}
+                        <tbody>
+                            <tr>
+                                <td scope="row"><font color="white" size="4">{{ info.ddate }}</font></td>
+                                <td scope="row"><font color="white" size="4">{{ info.announce }}</font></td>
+                                <td scope="row"><font color="white" size="4">{{ info.former }}</font></td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

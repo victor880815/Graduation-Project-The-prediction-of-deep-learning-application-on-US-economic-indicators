@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 資管系畢業專題 {% endblock %}
+{% block headmessage %}
+{% endblock %}
+{% block content %}
+<style>
+	select{
+		color:#ffffff;
+	}
+	option:not(first-child){
+		color: #aaa;
+	}
+	.row i small {
+		background-color: #ffffff;
+		color:#000;
+	}
+	.row button{
+		float: left;
+		margin-top: 25px;
+	}
+	.panel-body{
+		background-color:#ffffff;
+	}
+
+	.panel.footer{
+		background-color:#ffffff;
+	}
+</style>
+<div class='container-fluid'>
+
+	<div align="center">
+		{% if message %}
+			<div class="alert alert-info" style="color:#ffffff;;">{{ message }} {{ user_name }}</div>
+		{% endif %}
+			<div class="panel panel-default">
+				<div class ="panel-heding">
+				</div>
+						<form name='my form' action='/chat/' method="GET" style="color:#ffffff">
+							<h3>我要留言</h3>
+							我想要
+							{% for m in moods %}
+							<input type="radio" name="mood" value="{{ m.status }}" >{{ m.status }}
+							{% endfor %}
+							<br>
+							<strong>留言板</strong><br  style="background-color: #ffffff">
+							<textarea name="user_post" rows="11" cols="66" style="background-color: #ffffff"></textarea><br><br>
+							<label for='user_id' style="color: #ffffff">你的暱稱：</label>
+							<input id="user_id" type="text" name="user_id" style="background-color: #ffffff">
+							<label for="user_pass" style="color: #ffffff">張貼/刪除密碼：</label>
+							<input id="user_pass" type="password" name="user_pass" style="background-color: #ffffff">
+						<br>
+						<br>
+						<a type="submit" value="張貼" ><button style="background-color: rgba(0,136,169,1">張貼</button></a>
+						<a type="reset" value="清除重填" ><button style="background-color: rgba(0,136,169,1">清除重填</button></a>
+						</form>
+
+						<div class="row">
+						<div class="col-md-12">
+							<br>
+							<br>
+							<div class="panel-heading" align="center" style="color: #ffffff"><h3>留言列表</h3></div>
+						</div>
+					</div>
+					<div class="row">
+						{% for p in posts %}
+						<div class="col-sm-12 col-md-4">
+							<div class="panel panel-primary" style="background-color: #ffffff">
+								<div class="panel-heading" style="background-color: #000079 ">{{p.nickname}}{{ p.mood }}</div>
+								<div class="panel-footer" align="left" style="background-color:  #000000">{{ p.message }}</div>
+								<!-- <div class="panel-footer" align="right" style="background-color: #ffffff"> -->
+									<div class="time" align="right" style="background-color:  #000000;">
+									<i style="background-color: #ffffff"><small><br>發表時間：{{ p.pub_time }}</small></i>
+									<button  onclick='go_delete({{p.id}})'>刪除</button>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+				<script>
+				function go_delete(id){
+					var user_pass = document.getElementById('user_pass').value;
+					if (user_pass != "") {
+						var usr = '/chat/' + id + '/' + user_pass;
+						window.location = usr;
+					}
+				}
+				</script>
+				</div>	
+</div>
+
+
+{% endblock %}
+
+

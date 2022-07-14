@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 資管系畢業專題 {% endblock %}
+{% block headmessage %}
+{% endblock %}
+{% block content %}
+<div class='container-fluid'>
+	<div align="center">
+		<div class="panel panel-default">
+			<div class="panel-heding">
+				<h3 style="color: #FFFFFF">財經頻道</h3>
+			</div>
+			<div class="panel-body">
+				<div class="container">
+					<div align="center" id='tvcode'>
+						<iframe allowfullscreen frameborder="0" height="600" src="https://www.youtube.com/embed/{{tv.tvcode}}" title="YouTube video player" width="1000"></iframe>
+					</div>
+				</div>
+				<br>
+				<a class="cta" href="{% url 'tv-url' 0 %}"><button style="background-color: #0b4e57; color:white">財經週末趴</button></a>
+				<a class="cta" href="{% url 'tv-url' 1 %}"><button style="background-color: #0b4e57; color:white">財經一路發</button></a>
+				<a class="cta" href="{% url 'tv-url' 2 %}"><button style="background-color: #0b4e57; color:white">錢線百分百</button></a>
+				<a class="cta" href="{% url 'tv-url' 3 %}"><button style="background-color: #0b4e57; color:white">錢線煉金術</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
